@@ -454,9 +454,10 @@ def conduct_web_search_grounding(client: genai.Client, query_context: str) -> st
     return "No verified corporate footprint detected online."
 
 def run_offershield_agent(user_text: str = "", uploaded_img=None, pdf_raw_bytes: Optional[bytes] = None) -> tuple[OfferAnalysis, list]:
-    api_key = os.getenv("GEMINI_API_KEY")
+    # Check local .env first, then fall back to Streamlit Community Cloud Secrets
+    api_key = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY")
     if not api_key:
-        raise ValueError("GEMINI_API_KEY is not set. Please add it to your .env file.")
+        raise ValueError("GEMINI_API_KEY is not set. Please add it to your .env file locally or to Streamlit App Secrets.")
 
     client = genai.Client(api_key=api_key)
     agent_trace = []
