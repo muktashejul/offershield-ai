@@ -1,0 +1,11 @@
+streamlit
+google-genai
+pydantic
+python-dotenv
+dnspython
+python-whois
+rapidfuzz
+pypdf
+fpdf2
+pillow
+pandas
