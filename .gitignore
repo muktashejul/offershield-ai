@@ -1,0 +1,7 @@
+.env
+*.env
+venv/
+__pycache__/
+Cetificate.pdf
+sample_chat_screenshot.png
+sample_scam_offer.pdf
